@@ -6,6 +6,7 @@ import lombok.ToString;
 
 import javax.ws.rs.QueryParam;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,8 +20,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @ToString(callSuper=true)
 @XmlRootElement
 public class MnSmsRequest {
-    @QueryParam("serviceId")
     private String serviceId;
-    @QueryParam("linkId")
     private String linkId;
 }

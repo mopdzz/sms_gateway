@@ -2,9 +2,11 @@ package com.sp.platform.gateway.response;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +15,9 @@ import java.util.Map;
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
+@ToString
+@XmlRootElement
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, ignoreUnknown = true)
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 public class BaseResponse {
     

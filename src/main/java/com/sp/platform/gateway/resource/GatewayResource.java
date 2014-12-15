@@ -13,10 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Arrays;
@@ -30,11 +27,12 @@ public class GatewayResource extends BaseResource {
 
     private static Logger log = LoggerFactory.getLogger(GatewayResource.class);
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
+    @POST
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Path(Constants.MN_SMS)
-    public Response getEmapUrl(@InjectParam MnSmsRequest request) {
-        log.info("gateway receive an sms from mn" + request);
+    public Response receiveSms(MnSmsRequest request) {
+        log.info("POST Method gateway receive an sms from mn" + request);
         /** do validation */
         validator(request);
         /** set GetEmapUrlResponse and return */
@@ -43,6 +41,26 @@ public class GatewayResource extends BaseResource {
         response.setMessage(Arrays.asList(Status.SUCCESS.getReasonPhrase()));
         response.setFlg("true");
 
-        return Response.status(Response.Status.OK).entity(response).build();
+        return Response.status(Response.Status.OK).type(MediaType.APPLICATION_XML).entity(response).build();
+    }
+
+    @GET
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Path(Constants.MN_SMS)
+    public Response receiveSmsGet(@QueryParam("linkId") String linkId, @QueryParam("serviceId") String serviceId) {
+        MnSmsRequest request = new MnSmsRequest();
+        request.setLinkId(linkId);
+        request.setServiceId(serviceId);
+        log.info("Get Method gateway receive an sms from mn " + request);
+        /** do validation */
+        validator(request);
+        /** set GetEmapUrlResponse and return */
+        MnSmsResponse response = new MnSmsResponse();
+        response.setStatus(Status.SUCCESS.getHttpStatusCode());
+        response.setMessage(Arrays.asList(Status.SUCCESS.getReasonPhrase()));
+        response.setFlg("true");
+
+        return Response.status(Response.Status.OK).type(MediaType.APPLICATION_XML).entity(response).build();
     }
 }

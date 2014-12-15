@@ -28,6 +28,10 @@
                 com.sp.platform.gateway.exception.mapper
             </param-value>
         </init-param>
+        <!--<init-param>-->
+            <!--<param-name>com.sun.jersey.config.feature.DisableXmlSecurity</param-name>-->
+            <!--<param-value>true</param-value>-->
+        <!--</init-param>-->
         <init-param>
             <param-name>com.sun.jersey.spi.container.ContainerRequestFilters</param-name>
             <param-value>com.sp.platform.gateway.filter.DeliveryapiFilter</param-value>

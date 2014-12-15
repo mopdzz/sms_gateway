@@ -2,6 +2,10 @@ package com.sp.platform.gateway.response;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,6 +16,9 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@ToString(callSuper=true)
+@XmlRootElement
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, ignoreUnknown = true)
 public class MnSmsResponse extends BaseResponse{
     private String flg;
 }

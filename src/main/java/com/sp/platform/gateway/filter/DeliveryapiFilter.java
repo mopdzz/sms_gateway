@@ -62,7 +62,7 @@ public class DeliveryapiFilter implements ContainerRequestFilter,ContainerRespon
             loadEntity(requestRawData.get(), requestEntity);
             request.setEntityInputStream(new ByteArrayInputStream(requestEntity));
         } catch (IOException e) {
-           
+            System.out.println(e);
         }
         
         return request;
