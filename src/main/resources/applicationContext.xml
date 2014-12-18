@@ -69,7 +69,7 @@
                 <prop key="hibernate.generate_statistics">false</prop>
             </props>
         </property>
-        <property name="packagesToScan" value="com.sp.platform.entity" />
+        <property name="packagesToScan" value="com.sp.platform.domain" />
     </bean>
 
 

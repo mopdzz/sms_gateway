@@ -4,7 +4,7 @@
     <groupId>com.sp.platform</groupId>
     <artifactId>com.sp.platform.gateway</artifactId>
     <packaging>war</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>com.sp.platform.gateway Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
@@ -257,6 +257,7 @@
     </repositories>
 
     <build>
+        <finalName>com.sp.platform.web</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>

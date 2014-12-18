@@ -22,7 +22,6 @@ public class UserSericeImpl implements UserService{
 
     @Override
     public User get(int id) {
-        User user = userDao.get(id);
         return userDao.get(id);
     }
 
@@ -34,5 +33,15 @@ public class UserSericeImpl implements UserService{
     @Override
     public void save(User user) {
         userDao.save(user);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public User checkUser(User user) {
+        User dbUser = userDao.findUniqueBy("name", user.getName());
+        if(dbUser != null && dbUser.getPasswd().equalsIgnoreCase(user.getPasswd())){
+            return dbUser;
+        }
+        return null;
     }
 }

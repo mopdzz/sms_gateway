@@ -1,8 +1,6 @@
 package com.sp.platform.service;
 
 import com.sp.platform.domain.User;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,4 +13,5 @@ public interface UserService {
     public User get(int id);
     public void delete(int id);
     public void save(User user);
+    public User checkUser(User user);
 }
