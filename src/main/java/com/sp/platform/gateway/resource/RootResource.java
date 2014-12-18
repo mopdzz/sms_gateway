@@ -15,14 +15,16 @@ import javax.ws.rs.Path;
 public class RootResource{
 	
 	@Autowired
-	private GatewayResource deliveryMethodResource;
+	private GatewayResource gatewayResource;
+    @Autowired
+    private UserResource userResource;
 	
 	/**
 	 * @return deliveryMethodResource
 	 */
 	@Path(Constants.SMS)
-	public GatewayResource getDeliveryMethodResource() {
-		return deliveryMethodResource;
+	public GatewayResource getGatewayResource() {
+		return gatewayResource;
 	}
 
 }

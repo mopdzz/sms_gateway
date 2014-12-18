@@ -10,4 +10,6 @@ package com.sp.platform.gateway.constant;
 public class Constants {
     public static final String SMS = "sms";
     public static final String MN_SMS = "mn/sms";
+    public static final String USER_GET = "get";
+    public static final String USER_SAVE = "save";
 }
