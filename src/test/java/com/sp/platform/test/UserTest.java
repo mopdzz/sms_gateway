@@ -42,7 +42,7 @@ public class UserTest {
     public void testGetUser() {
         try {
             HttpClient httpClient = new DefaultHttpClient();
-            HttpGet get = new HttpGet("http://localhost:8080/rest/user/get?id=1");
+            HttpGet get = new HttpGet("http://localhost:8080/rest/user/get?id=29");
             HttpResponse response = httpClient.execute(get);
             System.out.println(IOUtils.toString(response.getEntity().getContent()));
         } catch (Exception e) {

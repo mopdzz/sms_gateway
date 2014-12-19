@@ -2,6 +2,8 @@ package com.sp.platform.service;
 
 import com.sp.platform.domain.User;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: mopdzz
@@ -14,4 +16,6 @@ public interface UserService {
     public void delete(int id);
     public void save(User user);
     public User checkUser(User user);
+
+    public List<User> getAll();
 }

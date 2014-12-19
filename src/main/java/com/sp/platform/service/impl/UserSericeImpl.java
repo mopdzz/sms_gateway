@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: mopdzz
@@ -43,5 +45,10 @@ public class UserSericeImpl implements UserService{
             return dbUser;
         }
         return null;
+    }
+
+    @Override
+    public List<User> getAll() {
+        return userDao.getAll();
     }
 }
